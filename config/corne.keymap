@@ -48,19 +48,17 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
-    };
 
-    macros {
-        browsertab: browsertab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_release>,
-                <&kp LCTRL>;
+        hm_layer: hm_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            label = "HM_LAYER";
         };
     };
 
@@ -81,10 +79,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp F     &kp P        &kp G            &kp J                     &kp L        &kp U                 &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&mt LSHFT ESCAPE  &kp A  &kp R  &lt 4 S   &kp T        &kp D            &kp H                     &kp N        &kp E                 &kp I    &kp O          &kp SQT
-&kp LG(TAB)       &kp Z  &kp X  &kp C     &kp V        &kp B            &kp K                     &kp M        &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSPACE
-                                &kp LGUI  &lt 1 ENTER  &mt LCTRL TAB    &mt LEFT_SHIFT BACKSPACE  &lt 2 SPACE  &kp LC(LS(LEFT_ALT))
+&kp TAB           &kp Q  &kp W  &kp F          &kp P        &kp G            &kp J                     &kp L        &kp U                 &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&mt LSHFT ESCAPE  &kp A  &kp R  &hm_layer 4 S  &kp T        &kp D            &kp H                     &kp N        &kp E                 &kp I    &kp O          &kp SQT
+&kp LG(TAB)       &kp Z  &kp X  &kp C          &kp V        &kp B            &kp K                     &kp M        &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSPACE
+                                &kp LGUI       &lt 1 ENTER  &mt LCTRL TAB    &mt LEFT_SHIFT BACKSPACE  &lt 2 SPACE  &kp LC(LS(LEFT_ALT))
             >;
         };
 
