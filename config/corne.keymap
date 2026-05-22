@@ -60,6 +60,14 @@
             require-prior-idle-ms = <120>;
             label = "HM_LAYER";
         };
+
+        meh: meh {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            label = "MEH";
+            mods = <(MOD_RSFT|MOD_RCTL|MOD_RALT)>;
+            bindings = <&none>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -79,10 +87,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp F          &kp P        &kp G            &kp J                     &kp L        &kp U                 &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&mt LSHFT ESCAPE  &kp A  &kp R  &hm_layer 4 S  &kp T        &kp D            &kp H                     &kp N        &kp E                 &kp I    &kp O          &kp SQT
-&kp LG(TAB)       &kp Z  &kp X  &kp C          &kp V        &kp B            &kp K                     &kp M        &kp COMMA             &kp DOT  &kp FSLH       &kp BACKSPACE
-                                &kp LGUI       &lt 1 ENTER  &mt LCTRL TAB    &mt LEFT_SHIFT BACKSPACE  &lt 2 SPACE  &kp LC(LS(LEFT_ALT))
+&kp TAB           &kp Q  &kp W  &kp F          &kp P        &kp G            &kp J                     &kp L        &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&mt LSHFT ESCAPE  &kp A  &kp R  &hm_layer 4 S  &kp T        &kp D            &kp H                     &kp N        &kp E      &kp I    &kp O          &kp SQT
+&kp LG(TAB)       &kp Z  &kp X  &kp C          &kp V        &kp B            &kp K                     &kp M        &kp COMMA  &kp DOT  &kp FSLH       &kp BACKSPACE
+                                &kp LGUI       &lt 1 ENTER  &mt LCTRL TAB    &mt LEFT_SHIFT BACKSPACE  &lt 2 SPACE  &meh
             >;
         };
 
